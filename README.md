@@ -2,7 +2,7 @@
 
 In this repository, we collect scripts and (extra) experiments and results, corresponding to our paper:
 
-> *Solving the Identifying Code Set Problem with Grouped Independent Support*, Anna L.D. Latour, Arunabha Sen, Kuldeep S. Meel, IJCAI 2023 (paper #4051).
+> *Solving the Identifying Code Set Problem with Grouped Independent Support*, Anna L.D. Latour, Arunabha Sen, Kuldeep S. Meel, IJCAI 2023 (paper #4051). [[paper pdf](https://www.ijcai.org/proceedings/2023/0219.pdf), [extended version](https://raw.githubusercontent.com/latower/latower.github.io/master/files/misc/LatEtAl23-extended_2023-08-23.pdf)]
 
 Note: as we were doing the experiment, we had not yet settled on a name for `gismo`, so in this repository we refer to it as `arjun-grp`.
 
