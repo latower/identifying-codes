@@ -68,16 +68,20 @@ def cardinality_constraint(variables: list,
     pblib_index_2_var = {idx: var for var, idx in var_2_pblib_index.items()}
     pbs = ''    # pblib input string
 
-    print("ub =", ub)
+    # Create pblib input string and write it to a temporary pblib input file
     if ub is not None and lb is None:
-        # Create pblib input string and write it to a temporary pblib input file
         pbs = ['* #variable= {nvars} #constraint= 1\n'.format(nvars=nvars),
                '* \n',  # pblib parser breaks if I don't include this. Don't know why.
                ' '.join(['-1 x{i}'.format(i=i + 1) for i, _ in enumerate(variables)]) + ' >= -{ub};'.format(
                    ub=ub)
                ]
+    elif ub is None and lb is not None:
+        pbs = ['* #variable= {nvars} #constraint= 1\n'.format(nvars=nvars),
+               '* \n',  # pblib parser breaks if I don't include this. Don't know why.
+               ' '.join(['+1 x{i}'.format(i=i + 1) for i, _ in enumerate(variables)]) + ' >= {lb};'.format(
+                   lb=lb)
+               ]
     elif ub == lb:
-        # Create pblib input string and write it to a temporary pblib input file
         pbs = ['* #variable= {nvars} #constraint= 1\n'.format(nvars=nvars),
                '* \n',  # pblib parser breaks if I don't include this. Don't know why.
                ' '.join(['+1 x{i}'.format(i=i + 1) for i, _ in enumerate(variables)]) + ' = {ub};'.format(ub=ub)
